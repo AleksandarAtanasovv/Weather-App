@@ -15,7 +15,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .weather-display {
   width: 400px;
@@ -29,197 +28,196 @@ body {
   color: #fff;
   position: relative;
   z-index: 999;
-  
 }
-.weather-display .day{
-    position: absolute;
-    top: 0px;
-    left: 20px;
-    font-size: 2rem;
+.weather-display .day {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  font-size: 2rem;
 }
-.weather-display .date{
-    position: absolute;
-    top: 50px;
-    left: 20px;
-    font-size: 1.5rem;
+.weather-display .date {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  font-size: 1.5rem;
 }
-.weather-display .city{
-    position: absolute;
-    top: 90px;
-    left: 20px;
-    font-size: 18.3px;
+.weather-display .city {
+  position: absolute;
+  top: 90px;
+  left: 20px;
+  font-size: 18.3px;
 }
-.fal{
-    position: absolute;
-    bottom: 110px;
-    left: 15px;
-    font-size: 5rem;
-    animation: rotate 10s infinite linear;
+.fal {
+  position: absolute;
+  bottom: 110px;
+  left: 15px;
+  font-size: 5rem;
+  animation: rotate 10s infinite linear;
 }
-.degrees{
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    font-size: 3rem;
+.degrees {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 3rem;
 }
-.weather-info{
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    font-size: 1rem;
+.weather-info {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 1rem;
 }
-.right-module{
+.right-module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #45567d;
+  height: 400px;
+  width: 410px;
+  border-radius: 0px 20px 20px 0px;
+  z-index: 1;
+  position: relative;
+}
+.right-module input {
+  position: absolute;
+  bottom: 50px;
+  border-radius: 15px;
+  border: 0;
+  right: 120px;
+  padding: 5px;
+  color: #fff;
+}
+.right-module input:focus,
+.right-module input:active {
+  border: 0;
+  background-color: transparent;
+}
+.humidity {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  font-size: 2rem;
+  color: #fff;
+}
+.wind {
+  position: absolute;
+  top: 60px;
+  right: 25px;
+  font-size: 2rem;
+  color: #fff;
+}
+.hum-text {
+  color: #fff;
+  font-family: inherit;
+  position: absolute;
+  top: 5px;
+  right: 230px;
+  font-size: 2rem;
+  color: #fff;
+}
+.wind-text {
+  position: absolute;
+  font-family: inherit;
+  top: 60px;
+  right: 300px;
+  font-size: 2rem;
+  color: #fff;
+}
+.choose-location {
+  color: #fff;
+  position: absolute;
+  bottom: 80px;
+  right: 150px;
+}
+.divider {
+  width: 5px;
+  height: 400px;
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    
+    display: flex;
+    flex-direction: column;
+  }
+  .divider {
+    animation: rotate 0.5s linear 1s;
+    width: 300px;
+    height: 10px;
+  }
+  .weather-display {
+    animation: rotate 0.5s linear 1s;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(#7f7fd5, #86a8e7, #91eae4);
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    color: #fff;
+    position: relative;
+  }
+  .right-module {
+    animation: rotate 0.5s linear 1s;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #45567d;
-    height: 400px;
-    width: 410px;
-    border-radius: 0px 20px 20px 0px;
+    height: 300px;
+    width: 300px;
+    border-radius: 0px 0px 20px 20px;
     z-index: 1;
     position: relative;
-    
-}
-.right-module input{
+  }
+  .choose-location {
+    color: #fff;
+    position: absolute;
+    bottom: 80px;
+    right: 100px;
+  }
+  .right-module input {
     position: absolute;
     bottom: 50px;
     border-radius: 15px;
     border: 0;
-    right: 120px;
+    right: 75px;
     padding: 5px;
     color: #fff;
-}
-.right-module input:focus,.right-module input:active{
-    
-    border: 0;
-    background-color: transparent;
-}
-.humidity{
-    position: absolute;
-    top: 5px;
-    right: 25px;
-    font-size: 2rem;
-    color: #fff;
-}
-.wind{
-    position: absolute;
-    top: 60px;
-    right: 25px;
-    font-size: 2rem;
-    color: #fff;
-}
-.hum-text{
+  }
+  .hum-text {
     color: #fff;
     font-family: inherit;
     position: absolute;
     top: 5px;
-    right: 230px;
+    right: 140px;
     font-size: 2rem;
     color: #fff;
-}
-.wind-text{
+  }
+  .wind-text {
     position: absolute;
     font-family: inherit;
     top: 60px;
-    right: 300px;
+    right: 210px;
     font-size: 2rem;
     color: #fff;
-}
-.choose-location{
-    color: #fff;
+  }
+  .fal {
     position: absolute;
-    bottom: 80px;
-    right: 150px;
+    bottom: 155px;
+    left: 200px;
+    font-size: 5rem;
+    animation: rotate 10s infinite linear;
+  }
 }
-.divider{
-    width: 5px;
-    height: 400px;
-    background-color: black;
-}
-
-@keyframes rotate{
-    0%{
-        transform: rotate(0deg);
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
     }
-    100%{
-        transform: rotate(360deg);
+    100% {
+      transform: rotate(360deg);
     }
-}
-@media (max-width: 768px){
-    .main-container{
-        display: flex;
-        flex-direction: column;
-    }
-    .divider{
-        width: 300px;
-        height: 10px;
-    }
-    .weather-display {
-        width: 300px;
-        height: 300px;
-        background: linear-gradient(#7f7fd5, #86a8e7, #91eae4);
-        border-radius: 20px 20px 0px 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        
-        color: #fff;
-        position: relative;
-        
-        
-      }
-      .right-module{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #45567d;
-        height: 300px;
-        width: 300px;
-        border-radius: 0px 0px 20px 20px;
-        z-index: 1;
-        position: relative;
-        
-    }
-    .choose-location{
-        color: #fff;
-        position: absolute;
-        bottom: 80px;
-        right: 100px;
-    }
-    .right-module input{
-        position: absolute;
-        bottom: 50px;
-        border-radius: 15px;
-        border: 0;
-        right: 75px;
-        padding: 5px;
-        color: #fff;
-    }
-    .hum-text{
-        color: #fff;
-        font-family: inherit;
-        position: absolute;
-        top: 5px;
-        right: 140px;
-        font-size: 2rem;
-        color: #fff;
-    }
-    .wind-text{
-        position: absolute;
-        font-family: inherit;
-        top: 60px;
-        right: 210px;
-        font-size: 2rem;
-        color: #fff;
-    }
-    .fal{
-        position: absolute;
-        bottom: 155px;
-        left: 200px;
-        font-size: 5rem;
-        animation: rotate 10s infinite linear;
-    }
-}
+  }
