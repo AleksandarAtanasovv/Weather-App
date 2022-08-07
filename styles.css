@@ -7,8 +7,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: Helvetica, sans-serif;
+  
 }
-.main-container {
+.main-container:not(.right-module) {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -26,6 +27,8 @@ body {
   flex-direction: column;
   color: #fff;
   position: relative;
+  z-index: 999;
+  
 }
 .weather-display .day{
     position: absolute;
@@ -63,3 +66,67 @@ body {
     left: 20px;
     font-size: 1rem;
 }
+.right-module{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #45567d;
+    height: 400px;
+    width: 410px;
+    border-radius: 20px;
+    z-index: 1;
+    left: 700px;
+}
+.right-module input{
+    position: absolute;
+    bottom: 50px;
+    border-radius: 15px;
+    border: 0;
+    right: 70px;
+    padding: 5px;
+}
+.right-module input:focus,.right-module input:active{
+    color: black;
+    border: 0;
+    background-color: transparent;
+}
+.humidity{
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    font-size: 2rem;
+    color: #fff;
+}
+.wind{
+    position: absolute;
+    top: 60px;
+    right: 25px;
+    font-size: 2rem;
+    color: #fff;
+}
+.hum-text{
+    color: #fff;
+    font-family: inherit;
+    position: absolute;
+    top: 5px;
+    right: 130px;
+    font-size: 2rem;
+    color: #fff;
+}
+.wind-text{
+    position: absolute;
+    font-family: inherit;
+    top: 60px;
+    right: 200px;
+    font-size: 2rem;
+    color: #fff;
+}
+.choose-location{
+    color: #fff;
+    position: absolute;
+    bottom: 80px;
+    right: 95px;
+}
+
