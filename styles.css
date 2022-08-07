@@ -7,7 +7,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: Helvetica, sans-serif;
-  
+  background: linear-gradient(#22c1c3, #fdbb2d);
 }
 .main-container:not(.right-module) {
   width: 100vw;
@@ -15,12 +15,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .weather-display {
   width: 400px;
   height: 400px;
   background: linear-gradient(#7f7fd5, #86a8e7, #91eae4);
-  border-radius: 20px;
+  border-radius: 20px 0px 00px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +54,7 @@ body {
     bottom: 110px;
     left: 15px;
     font-size: 5rem;
+    animation: rotate 10s infinite linear;
 }
 .degrees{
     position: absolute;
@@ -67,7 +69,6 @@ body {
     font-size: 1rem;
 }
 .right-module{
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,20 +76,21 @@ body {
     background-color: #45567d;
     height: 400px;
     width: 410px;
-    border-radius: 20px;
+    border-radius: 0px 20px 20px 0px;
     z-index: 1;
-    left: 700px;
+    position: relative;
 }
 .right-module input{
     position: absolute;
     bottom: 50px;
     border-radius: 15px;
     border: 0;
-    right: 70px;
+    right: 120px;
     padding: 5px;
+    color: #fff;
 }
 .right-module input:focus,.right-module input:active{
-    color: black;
+    
     border: 0;
     background-color: transparent;
 }
@@ -111,7 +113,7 @@ body {
     font-family: inherit;
     position: absolute;
     top: 5px;
-    right: 130px;
+    right: 230px;
     font-size: 2rem;
     color: #fff;
 }
@@ -119,7 +121,7 @@ body {
     position: absolute;
     font-family: inherit;
     top: 60px;
-    right: 200px;
+    right: 300px;
     font-size: 2rem;
     color: #fff;
 }
@@ -127,6 +129,19 @@ body {
     color: #fff;
     position: absolute;
     bottom: 80px;
-    right: 95px;
+    right: 150px;
+}
+.divider{
+    width: 5px;
+    height: 400px;
+    background-color: black;
 }
 
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
