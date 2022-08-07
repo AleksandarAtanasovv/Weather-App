@@ -1,3 +1,4 @@
+
 const degrees = document.getElementById("deg");
 const desc = document.getElementById("desc");
 const humid = document.getElementById("humid");
@@ -11,7 +12,9 @@ const weatherDisp = document.getElementById("weatherDisp");
 const right = document.getElementById("right");
 const humText = document.getElementById("hum-text");
 const windText = document.getElementById("wind-text");
-const locationText = document.getElementById('location')
+const locationText = document.getElementById("location");
+
+
 const apiKey = "3ece2e1db002a64e975395f5e0ef2684";
 const apiurl = (location) =>
   `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
@@ -19,17 +22,10 @@ const apiurl = (location) =>
 async function getSetWeather(location) {
   const response = await fetch(apiurl(location));
   const responseData = await response.json();
-  console.log(responseData);
   let currentDate = new Date();
   currentDate = currentDate.toString();
   let arrayDate = currentDate.split(" ");
   date.textContent = `${arrayDate[1]} ${arrayDate[2]} ${arrayDate[3]}`;
-  weatherDisp.classList.remove("remove");
-  weatherDisp.classList.add("move-left");
-  ``;
-  divider.classList.remove("remove");
-  right.classList.remove("round");
-  console.log(responseData);
   if (arrayDate[0] == "Mon") {
     day.textContent = "Monday";
   } else if (arrayDate[0] == "Tue" || arrayDate[0] == "Tues") {
@@ -49,7 +45,7 @@ async function getSetWeather(location) {
   } else if (arrayDate[0] == "Sun") {
     day.textContent = "Sunday";
   }
-  if (responseData.cod == "404") {
+  if (responseData.cod == "404" || responseData.cod == "400") {
     humid.textContent = "";
     win.textContent = "";
     desc.textContent = "";
@@ -58,23 +54,33 @@ async function getSetWeather(location) {
     day.textContent = "";
     date.textContent = "";
     icon.innerHTML = "";
-    humText.textContent = ''
-    windText.textContent = '';
+    humText.textContent = "";
+    windText.textContent = "";
+    city.innerHTML = ``;
+    weatherDisp.classList.add("remove");
+    divider.classList.add("remove");
+    right.classList.add("round");
+    weatherDisp.classList.add('move-right')
   } else {
     humid.textContent = `${responseData.main.humidity} %`;
     win.textContent = `${Math.ceil(responseData.wind.speed)} Km/h`;
     desc.textContent = `${responseData.weather[0].main}`;
     degrees.textContent = `${Math.trunc(responseData.main.temp - 273.15)} °C`;
-    city.innerHTML = `${responseData.name}, ${responseData.sys.country}`
+    city.innerHTML = `${responseData.name}, ${responseData.sys.country}`;
     locationText.innerHTML = `<i class="fas fa-map-marker-alt"></i> Choose Location`;
+    humText.textContent = "HUMIDITY";
+    windText.textContent = "WIND";
+    weatherDisp.classList.remove("remove");
+    weatherDisp.classList.add("move-left");
+    divider.classList.remove("remove");
+    right.classList.remove("round");
   }
 }
 
 const citySearch = document.getElementById("city-search");
 const search = document.getElementById("search");
 citySearch.addEventListener("submit", (e) => {
-  humText.textContent = "HUMIDITY";
-  windText.textContent = "WIND";
+  
   e.preventDefault();
   const location = search.value;
   getSetWeather(location);
