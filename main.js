@@ -21,10 +21,10 @@ async function getSetWeather(location){
     let arrayDate = currentDate.split(' ');
     date.textContent = `${arrayDate[1]} ${arrayDate[2]} ${arrayDate[3]}`;
     weatherDisp.classList.remove('remove');
-    weatherDisp.classList.add('move-left');
+    weatherDisp.classList.add('move-left'); ``
     divider.classList.remove('remove')
     right.classList.remove('round')
-    icon.innerHTML = `<img src="http://openweathermap.org/img/w/${responseData.weather[0].icon}.png" class="fal">`
+    
     if(arrayDate[0] == 'Mon'){
         day.textContent = "Monday"
     }else if(arrayDate[0] == 'Tue' || arrayDate[0] == 'Tues'){

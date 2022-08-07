@@ -36,7 +36,9 @@ body {
 }
 .right-module.round{
     border-radius: 20px;
+   
 }
+
 .divider.remove{
     display: none;
 }
@@ -63,11 +65,10 @@ body {
 }
 .fal {
   position: absolute;
-  bottom: 80px;
-  left: 0px;
-  height: 150px;
-  width: 100px;
-  object-fit: cover;
+  bottom: 130px;
+  left: 20px;
+  font-size: 4rem;
+  animation: rotateDsc 5s linear infinite;
 }
 .degrees {
   position: absolute;
@@ -102,6 +103,7 @@ body {
   padding: 5px;
   color: #fff;
 }
+
 .right-module input:focus,
 .right-module input:active {
   border: 0;
@@ -192,7 +194,7 @@ body {
     color: #fff;
     position: absolute;
     bottom: 80px;
-    right: 100px;
+    right: 104px;
   }
   .right-module input {
     position: absolute;
@@ -222,12 +224,11 @@ body {
   }
   .fal{
     position: absolute;
-    bottom: 155px;
+    bottom: 170px;
     left: 200px;
-    font-size: 10rem;
-    height: 100px;
-    width: 100px;
+    font-size: 5rem;
     
+    animation: rotateDsc 5s linear infinite;
   }
 }
 @keyframes rotate{
@@ -236,5 +237,13 @@ body {
     }
     100%{
         transform: translate(0%);
+    }
+}
+@keyframes rotateDsc{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
     }
 }
