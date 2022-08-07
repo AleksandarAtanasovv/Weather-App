@@ -19,7 +19,7 @@ const apiurl = (location) =>
 async function getSetWeather(location) {
   const response = await fetch(apiurl(location));
   const responseData = await response.json();
-
+  console.log(responseData);
   let currentDate = new Date();
   currentDate = currentDate.toString();
   let arrayDate = currentDate.split(" ");
@@ -61,12 +61,11 @@ async function getSetWeather(location) {
     humText.textContent = ''
     windText.textContent = '';
   } else {
-    console.log(responseData.message);
     humid.textContent = `${responseData.main.humidity} %`;
     win.textContent = `${Math.ceil(responseData.wind.speed)} Km/h`;
     desc.textContent = `${responseData.weather[0].main}`;
     degrees.textContent = `${Math.trunc(responseData.main.temp - 273.15)} °C`;
-    city.innerHTML = ''
+    city.innerHTML = `${responseData.name}, ${responseData.sys.country}`
     locationText.innerHTML = `<i class="fas fa-map-marker-alt"></i> Choose Location`;
   }
 }
