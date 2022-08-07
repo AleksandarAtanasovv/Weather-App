@@ -12,11 +12,12 @@ async function getSetWeather(location){
     const city = document.getElementById('city');
     const date = document.getElementById('date');
     const day = document.getElementById('day')
+    const icon = document.getElementById('icon')
     let currentDate = new Date();
     currentDate = currentDate.toString();
-    console.log(responseData);
     let arrayDate = currentDate.split(' ');
     date.textContent = `${arrayDate[1]} ${arrayDate[2]} ${arrayDate[3]}`;
+    icon.innerHTML = `<img src="http://openweathermap.org/img/w/${responseData.weather[0].icon}.png" class="fal">`
     if(arrayDate[0] == 'Mon'){
         day.textContent = "Monday"
     }else if(arrayDate[0] == 'Tue' || arrayDate[0] == 'Tues'){
@@ -29,6 +30,8 @@ async function getSetWeather(location){
         day.textContent = 'Friday'
     }else if(arrayDate[0] == 'Sat'){
         day.textContent = "Saturday"
+    }else if(arrayDate[0] == 'Sun'){
+        day.textContent = "Sunday"
     }
     humid.textContent = `${responseData.main.humidity} %`
     win.textContent = `${Math.ceil(responseData.wind.speed)} Km/h`
@@ -45,5 +48,7 @@ citySearch.addEventListener('submit', (e) =>{
     e.preventDefault();
     const location = search.value
     getSetWeather(location)
+    search.value = ''
+    
     
 })
