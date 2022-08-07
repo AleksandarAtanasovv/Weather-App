@@ -28,6 +28,20 @@ body {
   color: #fff;
   position: relative;
   z-index: 999;
+  
+}
+.weather-display.remove{
+   display: none;
+   
+}
+.right-module.round{
+    border-radius: 20px;
+}
+.divider.remove{
+    display: none;
+}
+.weather-display.move-left{
+    animation: rotate 0.2s linear 0s;
 }
 .weather-display .day {
   position: absolute;
@@ -54,7 +68,6 @@ body {
   height: 150px;
   width: 100px;
   object-fit: cover;
-  animation: rotate 10s infinite linear;
 }
 .degrees {
   position: absolute;
@@ -216,4 +229,12 @@ body {
     width: 100px;
     
   }
+}
+@keyframes rotate{
+    0%{
+        transform: translate(100%);
+    }
+    100%{
+        transform: translate(0%);
+    }
 }

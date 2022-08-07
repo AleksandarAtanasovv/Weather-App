@@ -13,10 +13,17 @@ async function getSetWeather(location){
     const date = document.getElementById('date');
     const day = document.getElementById('day')
     const icon = document.getElementById('icon')
+    const divider = document.querySelector('.divider');
+    const weatherDisp = document.getElementById('weatherDisp');
+    const right = document.getElementById('right')
     let currentDate = new Date();
     currentDate = currentDate.toString();
     let arrayDate = currentDate.split(' ');
     date.textContent = `${arrayDate[1]} ${arrayDate[2]} ${arrayDate[3]}`;
+    weatherDisp.classList.remove('remove');
+    weatherDisp.classList.add('move-left');
+    divider.classList.remove('remove')
+    right.classList.remove('round')
     icon.innerHTML = `<img src="http://openweathermap.org/img/w/${responseData.weather[0].icon}.png" class="fal">`
     if(arrayDate[0] == 'Mon'){
         day.textContent = "Monday"
@@ -44,7 +51,10 @@ async function getSetWeather(location){
 const citySearch = document.getElementById('city-search');
 const search = document.getElementById('search');
 citySearch.addEventListener('submit', (e) =>{
-    
+    const humText = document.getElementById('hum-text');
+    const windText = document.getElementById('wind-text');
+    humText.textContent = "HUMIDITY"
+    windText.textContent = "WIND"
     e.preventDefault();
     const location = search.value
     getSetWeather(location)
