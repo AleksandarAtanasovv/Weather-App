@@ -62,12 +62,14 @@ body {
   left: 20px;
   font-size: 18.3px;
 }
-.fal {
+#icon img{
   position: absolute;
-  bottom: 130px;
-  left: 20px;
+  bottom: 80px;
+  left: 18px;
   font-size: 4rem;
-  animation: rotateDsc 5s linear infinite;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
 }
 .degrees {
   position: absolute;

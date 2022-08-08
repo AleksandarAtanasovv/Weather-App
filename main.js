@@ -1,4 +1,3 @@
-
 const degrees = document.getElementById("deg");
 const desc = document.getElementById("desc");
 const humid = document.getElementById("humid");
@@ -14,14 +13,13 @@ const humText = document.getElementById("hum-text");
 const windText = document.getElementById("wind-text");
 const locationText = document.getElementById("location");
 
-
 const apiKey = "3ece2e1db002a64e975395f5e0ef2684";
 const apiurl = (location) =>
   `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
-
-async function getSetWeather(location) {
-  const response = await fetch(apiurl(location));
-  const responseData = await response.json();
+  
+  async function getSetWeather(location) {
+    const response = await fetch(apiurl(location));
+    const responseData = await response.json();
   let currentDate = new Date();
   currentDate = currentDate.toString();
   let arrayDate = currentDate.split(" ");
@@ -65,7 +63,7 @@ async function getSetWeather(location) {
     humid.textContent = `${responseData.main.humidity} %`;
     win.textContent = `${Math.ceil(responseData.wind.speed)} Km/h`;
     desc.textContent = `${responseData.weather[0].main}`;
-    degrees.textContent = `${Math.trunc(responseData.main.temp - 273.15)} °C`;
+    degrees.textContent = `${Math.trunc(responseData.main.temp - 273.15)}°C`;
     city.innerHTML = `${responseData.name}, ${responseData.sys.country}`;
     locationText.innerHTML = `<i class="fas fa-map-marker-alt"></i> Choose Location`;
     humText.textContent = "HUMIDITY";
@@ -74,6 +72,7 @@ async function getSetWeather(location) {
     weatherDisp.classList.add("move-left");
     divider.classList.remove("remove");
     right.classList.remove("round");
+    icon.innerHTML = `<img src="http://openweathermap.org/img/w/${responseData.weather[0].icon}.png">`
   }
 }
 
