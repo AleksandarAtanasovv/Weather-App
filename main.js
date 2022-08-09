@@ -12,14 +12,19 @@ const right = document.getElementById("right");
 const humText = document.getElementById("hum-text");
 const windText = document.getElementById("wind-text");
 const locationText = document.getElementById("location");
+const citySearch = document.getElementById("city-search");
+const search = document.getElementById("search");
 
 const apiKey = "3ece2e1db002a64e975395f5e0ef2684";
 const apiurl = (location) =>
   `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
   
-  async function getSetWeather(location) {
+async function getWeather(location) {
     const response = await fetch(apiurl(location));
     const responseData = await response.json();
+    setWeather(responseData)
+}
+function setWeather(responseData){
   let currentDate = new Date();
   currentDate = currentDate.toString();
   let arrayDate = currentDate.split(" ");
@@ -62,8 +67,8 @@ const apiurl = (location) =>
   } else {
     humid.textContent = `${responseData.main.humidity} %`;
     win.textContent = `${Math.ceil(responseData.wind.speed)} Km/h`;
-    desc.textContent = `${responseData.weather[0].main}`;
-    degrees.textContent = `${Math.trunc(responseData.main.temp - 273.15)}°C`;
+    desc.textContent = `${responseData.weather[0].main}`;   //Kelvin to celsius
+    degrees.textContent = `${Math.trunc(KToC(responseData.main.temp))}°C`;
     city.innerHTML = `${responseData.name}, ${responseData.sys.country}`;
     locationText.innerHTML = `<i class="fas fa-map-marker-alt"></i> Choose Location`;
     humText.textContent = "HUMIDITY";
@@ -75,13 +80,12 @@ const apiurl = (location) =>
     icon.innerHTML = `<img src="http://openweathermap.org/img/w/${responseData.weather[0].icon}.png">`
   }
 }
-
-const citySearch = document.getElementById("city-search");
-const search = document.getElementById("search");
+const KToC = (k) => {
+  return k - 273.15;
+}
 citySearch.addEventListener("submit", (e) => {
-  
   e.preventDefault();
   const location = search.value;
-  getSetWeather(location);
+  getWeather(location);
   search.value = "";
 });
